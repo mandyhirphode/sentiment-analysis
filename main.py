@@ -31,7 +31,6 @@ class SentimentResult(BaseModel):
 
 @app.post("/upload/")
 async def upload_csv(file: UploadFile = File(...), token: str = Depends(oauth2_scheme)):
-# async def upload_csv(file: UploadFile = File(...)):
     print(file.content_type)
     if file.content_type != 'text/csv':
         raise HTTPException(status_code=400, detail="Invalid file type, please upload a CSV file")
@@ -54,7 +53,6 @@ async def upload_csv(file: UploadFile = File(...), token: str = Depends(oauth2_s
 
 @app.post("/token")
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    # For simplicity, we'll use a hardcoded username and password
     if form_data.username == "admin" and form_data.password == "admin":
         return {"access_token": "fake-token", "token_type": "bearer"}
     raise HTTPException(
