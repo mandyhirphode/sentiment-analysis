@@ -22,7 +22,7 @@ app.add_middleware(
 )
 
 
-# oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 class SentimentResult(BaseModel):
     id: int
@@ -30,8 +30,8 @@ class SentimentResult(BaseModel):
     sentiment: str
 
 @app.post("/upload/")
-# async def upload_csv(file: UploadFile = File(...), token: str = Depends(oauth2_scheme)):
-async def upload_csv(file: UploadFile = File(...)):
+async def upload_csv(file: UploadFile = File(...), token: str = Depends(oauth2_scheme)):
+# async def upload_csv(file: UploadFile = File(...)):
     print(file.content_type)
     if file.content_type != 'text/csv':
         raise HTTPException(status_code=400, detail="Invalid file type, please upload a CSV file")
@@ -52,16 +52,16 @@ async def upload_csv(file: UploadFile = File(...)):
 
     return results
 
-# @app.post("/token")
-# async def login(form_data: OAuth2PasswordRequestForm = Depends()):
-#     # For simplicity, we'll use a hardcoded username and password
-#     if form_data.username == "admin" and form_data.password == "admin":
-#         return {"access_token": "fake-token", "token_type": "bearer"}
-#     raise HTTPException(
-#         status_code=status.HTTP_401_UNAUTHORIZED,
-#         detail="Incorrect username or password",
-#         headers={"WWW-Authenticate": "Bearer"},
-#     )
+@app.post("/token")
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    # For simplicity, we'll use a hardcoded username and password
+    if form_data.username == "admin" and form_data.password == "admin":
+        return {"access_token": "fake-token", "token_type": "bearer"}
+    raise HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Incorrect username or password",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
 
 if __name__ == "__main__":
     import uvicorn
