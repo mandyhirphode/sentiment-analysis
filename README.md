@@ -1,4 +1,4 @@
-```markdown
+
 # FastAPI Sentiment Analysis Project
 
 This project demonstrates how to build a RESTful API using FastAPI for performing sentiment analysis on text input. The sentiment analysis is powered by the `transformers` library from Hugging Face.
@@ -13,8 +13,7 @@ This project demonstrates how to build a RESTful API using FastAPI for performin
   - [Running the Application](#running-the-application)
   - [Making API Requests](#making-api-requests)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
@@ -110,40 +109,3 @@ my_project/
 - **`requirements.txt`:** Lists all the dependencies required for the project.
 - **`.env`:** Stores environment variables.
 - **`README.md`:** Provides an overview of the project, setup instructions, and usage examples.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature`).
-3. Commit your changes (`git commit -am 'Add your feature'`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Create a new Pull Request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-```
-
-### Steps to Add the Documentation to Your Project
-
-1. **Create a `README.md` File:**
-   - In the root directory of your project, create a file named `README.md`.
-
-2. **Copy and Paste the Content:**
-   - Copy the provided content and paste it into the `README.md` file.
-
-3. **Customize as Needed:**
-   - Update any placeholders (e.g., `yourusername`) with your actual information.
-   - Add any additional sections or details specific to your project.
-
-4. **Commit and Push:**
-   - If you are using version control (e.g., Git), commit the `README.md` file and push it to your repository.
-     ```sh
-     git add README.md
-     git commit -m "Add project documentation"
-     git push origin main
-     ```
-
-By following these steps, you will have a comprehensive documentation file that helps users and contributors understand and use your project effectively.
